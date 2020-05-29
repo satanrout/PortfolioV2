@@ -1,7 +1,7 @@
 # PortfolioV2
  The Second Iteration of my Portfolio. A web app made on React.
 
-[![Site preview](/public/social-image.png)](https://bucharitesh.in)
+[![Site preview](/public/social-image.png)](https://portfoliov2-2963d.web.app/)
 
 ## Install & run
 
