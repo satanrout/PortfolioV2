@@ -61,11 +61,13 @@ function PostList() {
         <PostTitleWrapper>
           <PostListTitle>Articles</PostListTitle>
         </PostTitleWrapper>
+        {/*
         <PostListColumn>
           {posts?.map(({ path, ...post }) => (
             <PostListItem key={path} path={path} {...post} />
           ))}
         </PostListColumn>
+          */}
       </PostListContent>
     </PostListWrapper>
   );

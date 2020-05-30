@@ -102,6 +102,7 @@ function Intro(props) {
   );
 }
 
+
 const IntroContent = styled.section`
   height: 100vh;
   display: flex;

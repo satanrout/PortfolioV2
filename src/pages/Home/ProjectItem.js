@@ -283,6 +283,7 @@ const ProjectItemIndexNumber = styled.span`
 const ProjectItemTitle = styled.h2`
   font-size: var(--fontSizeH2);
   font-weight: var(--fontWeightMedium);
+  text-align: center;
   color: var(--colorTextTitle);
   line-height: var(--lineHeightTitle);
   margin: 0 0 var(--spaceL) 0;

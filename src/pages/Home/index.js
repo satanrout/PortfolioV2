@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Intro from './Intro';
 import ProjectItem from './ProjectItem';
+import GitProjects from './GitProjects';
 import Profile from './Profile';
 import Footer from 'components/Footer';
 import { usePrefersReducedMotion, useRouteTransition } from 'hooks';
@@ -138,6 +139,7 @@ export default function Home(props) {
         imagePlaceholder={useMemo(() => [easyProjectPlaceholder], [])}
         imageType="laptop"
       />
+      <GitProjects/>
       <Profile
         sectionRef={about}
         visible={visibleSections.includes(about.current)}

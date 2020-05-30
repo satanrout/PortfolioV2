@@ -22,6 +22,14 @@ import easyBrandingPlaceholder from 'assets/dtt-branding-placeholder.png';
 import easyLanding from 'assets/easy-landing.png';
 import easyLandingLarge from 'assets/easy-landing-large.png';
 import easyLandingPlaceholder from 'assets/easy-landing-placeholder.png';
+import VueJs from 'assets/VueJs.png';
+import VueJsLarge from 'assets/VueJs-Large.png';
+import VueJsPlaceholder from 'assets/VueJs-placeholder.png';
+import Firebase from 'assets/Firebase.png';
+import FirebaseLarge from 'assets/Firebase-Large.png';
+import FirebasePlaceholder from 'assets/Firebase-placeholder.png';
+import deb from 'assets/deb.png';
+import bucha from 'assets/bucha.png';
 
 const title = 'EasyPharm';
 const description = 'I lead the design and development of Easypharm. This project involved designing a hub to connect a Pharmacy Store to Customes during Covid-19.';
@@ -66,7 +74,7 @@ function EasyPharm() {
             </ProjectImage>
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection>
+        <ProjectSection light>
           <ProjectSectionColumns>
             <SidebarImageText>
               <ProjectSectionHeading>Visual Identity</ProjectSectionHeading>
@@ -82,7 +90,7 @@ function EasyPharm() {
             />
           </ProjectSectionColumns>
         </ProjectSection>
-        <ProjectSection light>
+        <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow noMargin>
               <ProjectSectionHeading>The Mission</ProjectSectionHeading>
@@ -95,27 +103,27 @@ function EasyPharm() {
             </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>
-        {/*}
-        <ProjectSection>
-          <ProjectSectionContent>
-            <ProjectTextRow>
+        <ProjectSection light>
+        <ProjectSectionContent>
+            <ProjectTextRow noMargin>
               <ProjectSectionHeading>Tech Stack</ProjectSectionHeading>
-              <ProjectSectionText>
-                Our API gave developers complete control of their tools, but our interface lacked this flexibility with customization limited to each tool.
-              </ProjectSectionText>
-              <ProjectSectionText>
-                With the release of DevTech Tools Pipelines, tools combine into one with custom triggers, events, and other actions.
-              </ProjectSectionText>
             </ProjectTextRow>
-            <ProgressiveImage
-              srcSet={`${dttPipeline} 800w, ${dttPipelineLarge} 1440w`}
-              placeholder={dttPipelinePlaceholder}
-              alt="A screenshot of tools linked in the pipeline flowchart editor."
-              sizes={`(max-width: ${media.mobile}px) 500px, (max-width: ${media.tablet}px) 800px, 1000px`}
-            />
           </ProjectSectionContent>
+          <ProjectSectionColumns>
+          <SidebarImage
+              srcSet={`${VueJs} 400w, ${VueJsLarge} 898w`}
+              placeholder={VueJsPlaceholder}
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 100vw, 50vw`}
+              alt="The EasyPharm color palette and logo, featuring pipelines as electronic traces."
+            />
+            <SidebarImage
+              srcSet={`${Firebase} 400w, ${FirebaseLarge} 898w`}
+              placeholder={FirebasePlaceholder}
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 100vw, 50vw`}
+              alt="The EasyPharm color palette and logo, featuring pipelines as electronic traces."
+            />
+          </ProjectSectionColumns>
         </ProjectSection>
-        */}
         <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
@@ -135,6 +143,30 @@ function EasyPharm() {
             />
           </ProjectSectionContent>
         </ProjectSection>
+        {/*}
+        <ProjectSection light>
+        <ProjectSectionContent>
+            <ProjectTextRow noMargin>
+              <ProjectSectionHeading>Our Team</ProjectSectionHeading>
+            </ProjectTextRow>
+          </ProjectSectionContent>
+          <ProjectSectionColumns>
+          <SidebarImage
+              srcSet={`${VueJs} 400w, ${deb} 898w`}
+              placeholder={VueJsPlaceholder}
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 100vw, 50vw`}
+              alt="The EasyPharm color palette and logo, featuring pipelines as electronic traces."
+              url="#"
+           />
+            <SidebarImage
+              srcSet={`${Firebase} 400w, ${bucha} 898w`}
+              placeholder={FirebasePlaceholder}
+              sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 100vw, 50vw`}
+              alt="The EasyPharm color palette and logo, featuring pipelines as electronic traces."
+            />
+          </ProjectSectionColumns>
+        </ProjectSection>
+  */}
       </ProjectContainer>
       <Footer />
     </Fragment>
