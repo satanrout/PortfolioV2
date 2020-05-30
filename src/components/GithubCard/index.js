@@ -41,7 +41,7 @@ class RepoCard extends React.Component {
               </h1>
             </div>
             <div className="content">
-      <div className="description">{this.state.repo.description}{this.state.repo.network}</div>
+      <div className="description">{this.state.repo.description}<br/><a href={this.state.repo.homepage}>Go To Page</a></div>
               <ul className="status">
                 <li><strong>{forks}</strong>Forks</li>
                 <li><strong>{stars}</strong>Stars</li>

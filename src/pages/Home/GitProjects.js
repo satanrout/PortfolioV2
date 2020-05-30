@@ -29,13 +29,14 @@ function Articles() {
       <Fragment>
         <IntroText>
           <IntroName status={status}>
-            <DecoderText text="GITHUB Repo" start={!prerender} offset={1200} />
+            <DecoderText text="GITHUB Repo" start={!prerender} offset={120} />
           </IntroName>
         </IntroText>
         <PostListWrapper>
       <PostListContent>
           <RepoCard username="bucharitesh" repo="PortfolioV2" />
           <RepoCard username="bucharitesh" repo="PortfolioV1" />
+          <RepoCard username="bucharitesh" repo="EasyPharma" />
       </PostListContent>
       </PostListWrapper>
       </Fragment>
@@ -55,7 +56,6 @@ const PostListWrapper = styled.div`
 
 const PostListContent = styled.div`
   max-width: var(--maxWidthL);
-  grid-template-columns: 144px 1fr;
   grid-gap: 20px;
   position: relative;
 
