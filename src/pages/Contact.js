@@ -12,7 +12,6 @@ import { reflow } from 'utils/transition';
 import prerender from 'utils/prerender';
 import { tokens, msToNum } from 'app/theme';
 
-
 const initDelay = tokens.base.durationS;
 
 function getStatusError(status) {
@@ -30,7 +29,6 @@ function getStatusError(status) {
 
 function Contact() {
   const { status } = useRouteTransition();
-  const name = useFormInput('');
   const email = useFormInput('');
   const message = useFormInput('');
   const [sending, setSending] = useState(false);
@@ -51,7 +49,6 @@ function Contact() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: name.value,
           email: email.value,
           message: message.value,
         }),
@@ -66,12 +63,12 @@ function Contact() {
       setSending(false);
       alert(error.message);
     }
-  }, [name.value, email.value, message.value, sending]);
+  }, [email.value, message.value, sending]);
 
   return (
     <ContactWrapper status={status}>
       <Helmet
-        title="Ritesh Bucha | Contact"
+        title="Contact"
         meta={[{
           name: 'description',
           content: 'Send me a message if you’re interested in discussing a project or if you just want to say hi',
@@ -98,15 +95,6 @@ function Contact() {
                 </ContactTitle>
                 <ContactDivider status={status} delay={msToNum(tokens.base.durationXS) / 2} />
                 <ContactFields>
-                <ContactInput
-                    {...name}
-                    status={status}
-                    delay={tokens.base.durationS}
-                    autoComplete="off"
-                    label="Name"
-                    maxLength={200}
-                    required
-                  />
                   <ContactInput
                     {...email}
                     status={status}

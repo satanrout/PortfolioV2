@@ -19,7 +19,7 @@ const mailTransport = nodemailer.createTransport({
 admin.initializeApp();
 app.use(helmet());
 app.use(express.json());
-app.use(cors({ origin: 'http://portfoliov2-2963d.web.app/' }));
+app.use(cors({ origin: 'https://codyb.co' }));
 
 app.post('/functions/sendMessage', async (req, res) => {
   try {
@@ -35,7 +35,7 @@ app.post('/functions/sendMessage', async (req, res) => {
 function sendMail(email, message) {
   const mailOptions = {
     from: `Portfolio <${gmailEmail}>`,
-    to: 'bucharitesh@gmail.com',
+    to: 'hi@codyb.co',
     subject: `New message from ${email}`,
     text: `From: ${email}\n\n${message}`,
   };
