@@ -11,59 +11,45 @@ import { useScrollRestore, useFormInput, useRouteTransition } from 'hooks';
 import { reflow } from 'utils/transition';
 import prerender from 'utils/prerender';
 import { tokens, msToNum } from 'app/theme';
+import firestore from 'firestore';
+import firebase from 'firebase';
 
 const initDelay = tokens.base.durationS;
 
-function getStatusError(status) {
-  if (status === 200) return false;
 
-  const genericErrorMessage = 'There was a problem sending your message';
-
-  const statuses = {
-    500: 'There was a problem with the server, try again later',
-    404: 'There was a problem connecting to the server. Make sure you are connected to the internet',
-  };
-
-  return statuses[status] || genericErrorMessage;
-}
 
 function Contact() {
   const { status } = useRouteTransition();
+  const name = useFormInput('');
   const email = useFormInput('');
   const message = useFormInput('');
   const [sending, setSending] = useState(false);
   const [complete, setComplete] = useState(false);
   useScrollRestore();
-
-  const onSubmit = useCallback(async event => {
-    event.preventDefault();
-    if (sending) return;
-
-    try {
-      setSending(true);
-
-      const response = await fetch('/functions/sendMessage', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email.value,
-          message: message.value,
-        }),
-      });
-
-      const errorStatus = getStatusError(response.status);
-      if (errorStatus) throw new Error(errorStatus);
-
+  
+  const onSubmit = e => {
+    e.preventDefault();
+    setSending(true);
+    const db = firebase.firestore();
+    let nm = name.value;
+    let mail = email.value;
+    let msg = message.value;
+    if(name && email && message){
+    const userRef = db.collection("contacts").add({
+      name: nm,
+      email: mail,
+      message: msg
+    }).then(()=>{
       setComplete(true);
       setSending(false);
-    } catch (error) {
+      
+    }).catch((error)=>{
+      console.log(e);
       setSending(false);
       alert(error.message);
-    }
-  }, [email.value, message.value, sending]);
+    });
+  }
+  };
 
   return (
     <ContactWrapper status={status}>
@@ -84,7 +70,7 @@ function Contact() {
             onEnter={reflow}
           >
             {status => (
-              <ContactForm method="post" onSubmit={onSubmit} role="form">
+              <ContactForm onSubmit={onSubmit} role="form">
                 <ContactTitle status={status} delay={msToNum(tokens.base.durationXS) / 3}>
                   <DecoderText
                     text="Say hello"
@@ -95,6 +81,15 @@ function Contact() {
                 </ContactTitle>
                 <ContactDivider status={status} delay={msToNum(tokens.base.durationXS) / 2} />
                 <ContactFields>
+                <ContactInput
+                    {...name}
+                    status={status}
+                    delay={tokens.base.durationXS}
+                    label="Your Name"
+                    type="name"
+                    maxLength={100}
+                    required
+                  />
                   <ContactInput
                     {...email}
                     status={status}

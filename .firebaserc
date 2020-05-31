@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "portfoliov2-2963d"
+  },
+  "targets": {
+    "portfoliov2-2963d": {
+      "hosting": {
+        "storybook": [
+          "portfoliov2-2963d"
+        ]
+      }
+    }
   }
 }
