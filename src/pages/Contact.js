@@ -11,9 +11,20 @@ import { useScrollRestore, useFormInput, useRouteTransition } from 'hooks';
 import { reflow } from 'utils/transition';
 import prerender from 'utils/prerender';
 import { tokens, msToNum } from 'app/theme';
-import firestore from 'firestore';
-import firebase from 'firebase';
-
+import * as firebase from 'firebase/app';
+import "firebase/firestore";
+import "firebase/firebase"
+const config = {
+    apiKey: "AIzaSyDtpksAts3-OUc3sTUZjMgcMM2AegJqEnY",
+    authDomain: "portfoliov2-2963d.firebaseapp.com",
+    databaseURL: "https://portfoliov2-2963d.firebaseio.com",
+    projectId: "portfoliov2-2963d",
+    storageBucket: "portfoliov2-2963d.appspot.com",
+    messagingSenderId: "793465687390",
+    appId: "1:793465687390:web:6f1eaf31a4df44612193cf",
+    measurementId: "G-72D6BM77PC"
+};
+firebase.initializeApp(config);
 const initDelay = tokens.base.durationS;
 
 
@@ -130,6 +141,7 @@ function Contact() {
         {complete &&
           <Transition
             appear
+            timeout = {1600}
             mountOnEnter
             unmountOnExit
             onEnter={reflow}

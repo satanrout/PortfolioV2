@@ -26,7 +26,31 @@
     <meta name="twitter:description" content="Designer, full-stack developer, and creator of web & mobile solutions with a focus on motion and user experience." />
     <meta name="twitter:title" content="Ritesh Bucha | Designer + Developer" />
     <meta name="twitter:image" content="https://bucharitesh.in%PUBLIC_URL%/social-image.png" />
-    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+    <link rel="stylesheet" href="https://unpkg.com/kursor@0.1.6/dist/kursor.css">
+    <style>
+      :root {
+  --shadow: #71d5fe;
+  --scrollbarBG: transparent;
+  --thumbBG: #71d5fe;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  box-shadow: 0 -100vh 0 100vh var(--shadow), 0 0 15px 5px transparent;
+  height: 30px;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover { 
+  background: #ffffff; 
+} 
+    </style>
   </head>
 
   <body>
@@ -35,11 +59,10 @@
       document.body.className = preferredTheme || 'dark';
     </script>
     <div id="root"></div>
-    <script src="https://unpkg.com/kursor"></script>
+    <script src="https://unpkg.com/kursor@0.1.6/dist/kursor.js"></script>
     <script>
         new kursor({
-            type: 1,
-            removeDefaultCursor: true,
+            type: 2,
             color: '#71d5fe',
         })
     </script>
