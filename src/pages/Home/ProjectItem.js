@@ -6,9 +6,9 @@ import { RouterButton, LinkButton } from 'components/Button';
 import ProgressiveImage from 'components/ProgressiveImage';
 import Divider from 'components/Divider';
 import { useWindowSize } from 'hooks';
-import phone from 'assets/phone.png';
-import phoneLarge from 'assets/phone-large.png';
-import phonePlaceholder from 'assets/phone-placeholder.png';
+import phone from 'assets/phone.webp';
+import phoneLarge from 'assets/phone-large.webp';
+import phonePlaceholder from 'assets/phone-placeholder.webp';
 import { reflow } from 'utils/transition';
 
 function ProjectItem({

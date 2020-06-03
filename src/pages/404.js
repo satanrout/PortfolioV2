@@ -8,7 +8,7 @@ import { reflow } from 'utils/transition';
 import { media } from 'utils/style';
 import { pxToRem } from 'app/theme';
 import notFound from 'assets/notfound.mp4';
-import notFoundPoster from 'assets/notfound.jpg';
+import notFoundPoster from 'assets/notfound.webp';
 
 function NotFound() {
   return (

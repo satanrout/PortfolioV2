@@ -1,18 +1,17 @@
 The humans.txt file explains the team, technology,
-and graphic assets behind this site humanstxt.org.
+and graphic assets behind this site bucharitesh.in.
 
 _______________________________________________________________________________
 
 DESIGNER
 
-Cody Bennett
-Designer, Full-Stack Developer
+Ritesh Bucha
+Full-Stack Developer & Designer
 
 Design tools:
-Figma
-InVision
+Adobe Xd
 
-github.com/CodyJasonBennett
+github.com/bucharitesh
 
 _______________________________________________________________________________
 
@@ -20,8 +19,6 @@ TECHNOLOGY
 
 React
 Styled Components
-Storybook
-Three
 Firebase
 
 _______________________________________________________________________________

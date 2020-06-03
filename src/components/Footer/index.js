@@ -5,6 +5,7 @@ import Anchor from 'components/Anchor';
 import { sectionPadding } from 'utils/style';
 
 const Footer = () => (
+
   <FooterContainer role="contentinfo">
     <FooterDate>{`Developed with`} &hearts; {`by `} </FooterDate>
     <Anchor secondary={1} as={Link} to="/#about">Ritesh Bucha</Anchor>

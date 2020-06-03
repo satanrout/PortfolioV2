@@ -6,7 +6,19 @@
     margin-top: 5em;
     align-content: center;
     position: relative;
-    left: 10%;
+    left: 5%;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .medium-theme{
+        left: 20%;
+    }
+  }
+@media only screen and (max-width: 600px) {
+    .medium-theme{
+        margin-left: 0em;
+        left: 0%;
+    }
 }
 
 .medium-theme .github-card {
@@ -34,6 +46,14 @@
 .medium-theme .github-card .content {
     height: 150px;
     width: 350px;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .medium-theme .github-card .content {
+        height: 80px;
+        width: 300px; 
+    }
 }
 
 .medium-theme .github-card .content .description {
@@ -111,7 +131,7 @@
 }
 
 .medium-theme .github-card .status a:hover {
-    color: #4183c4
+    color: #00e5ff
 }
 
 .medium-theme .user-card .header {
@@ -152,7 +172,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #64bbe8;
+    background: #00e5ff;
     width: 100%
 }
 
@@ -175,7 +195,7 @@
 
 .medium-theme .repo-card p a {
     text-decoration: none;
-    color: #4183c4;
+    color: #00e5ff;
     outline: 0
 }
 

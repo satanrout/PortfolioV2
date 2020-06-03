@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <title>SEPM Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="info">
+                <div class="shoeName">
+                    <div>
+                        <h1 class="big">LOGIN</h1>
+                        <span class="new">prags.bucharitesh.in</span>
+                    </div>
+                </div>
+                <div class="description">
+                    <div id="firebaseui-auth-container"></div>
+                    <div id="loader">Loading...</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script>
+        $(document).ready(function () {
+            var firebaseConfig = {
+                    apiKey: "AIzaSyCGEV93yAodW1lLwWvVFoZQOk3dW5EvX_I",
+                    authDomain: "prags-81a8e.firebaseapp.com",
+                    databaseURL: "https://prags-81a8e.firebaseio.com",
+                    projectId: "prags-81a8e",
+                    storageBucket: "prags-81a8e.appspot.com",
+                    messagingSenderId: "451121485481",
+                    appId: "1:451121485481:web:257362393febee536c7bb8"
+                  };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            var ui = new firebaseui.auth.AuthUI(firebase.auth());
+            var uiConfig = {
+                callbacks: {
+                    signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    return true;
+                    },
+                    uiShown: function () {
+                        // The widget is rendered.
+                        // Hide the loader.
+                        document.getElementById('loader').style.display = 'none';
+                    }
+                },
+                // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+                signInFlow: 'popup',
+                signInSuccessUrl: 'https://prags.bucharitesh.in/home',
+                signInOptions: [
+                    // Leave the lines as is for the providers you want to offer your users.
+                    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                    firebase.auth.PhoneAuthProvider.PROVIDER_ID
+                ],
+                // Terms of service url.
+                tosUrl: '<your-tos-url>',
+                // Privacy policy url.
+                privacyPolicyUrl: '<your-privacy-policy-url>'
+            };
+            ui.start('#firebaseui-auth-container', uiConfig);
+        });
+    </script>
+   
+    <script defer src="assets/all-combined.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+</body>
+</html>

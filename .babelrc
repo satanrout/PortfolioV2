@@ -1,5 +1,11 @@
 {
   "presets": [
     "babel-preset-react-app"
+  ],
+  "plugins": [
+    "minify-dead-code-elimination",
+    "minify-simplify",
+    "@babel/plugin-transform-runtime",
+    "transform-class-properties"
   ]
 }

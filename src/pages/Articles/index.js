@@ -3,7 +3,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { Helmet } from 'react-helmet-async';
 import { useScrollRestore } from 'hooks';
-import { sectionPadding, media } from 'utils/style';
+import { media } from 'utils/style';
 import Post from './Post';
 import ProgressiveImage from 'components/ProgressiveImage';
 import posts from 'posts';
@@ -61,13 +61,12 @@ function PostList() {
         <PostTitleWrapper>
           <PostListTitle>Articles</PostListTitle>
         </PostTitleWrapper>
-        {/*
+        <Text>This Page is Under Progess :) Please check back later :)</Text>
         <PostListColumn>
           {posts?.map(({ path, ...post }) => (
             <PostListItem key={path} path={path} {...post} />
           ))}
         </PostListColumn>
-          */}
       </PostListContent>
     </PostListWrapper>
   );
@@ -94,6 +93,12 @@ function Articles() {
 
 export default Articles;
 
+const Text = styled.div`
+    font-size: 10px;
+    text-align: center;
+    margin: 3em 0;
+`;
+
 const PostListWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -103,7 +108,6 @@ const PostListWrapper = styled.div`
 const PostListContent = styled.div`
   max-width: var(--maxWidthL);
   width: 100%;
-  display: grid;
   grid-template-columns: 144px 1fr;
   grid-gap: 20px;
   padding: 80px 0;
@@ -116,8 +120,8 @@ const PostListContent = styled.div`
 
 const PostListItemWrapper = styled.article`
   display: flex;
+  margin-right: 15%;
   justify-content: center;
-  ${sectionPadding}
 `;
 
 const PostTitleWrapper = styled.div`
@@ -127,22 +131,38 @@ const PostTitleWrapper = styled.div`
 
 const PostListColumn = styled.div`
   display: grid;
-  grid-template-columns: 100%;
-  grid-gap: 60px;
+  grid-template-columns: inherit;
+  grid-gap:60px 450px ;
+  padding: 40px 0;
+
+  @media (max-width: ${media.tablet}px) {
+    grid-template-columns: 100%;
+    grid-gap:60px;
+  }
 `;
 
 const PostListTitle = styled.h1`
   font-size: 120px;
   margin: 0;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
   position: relative;
-  opacity: 5%;
+  opacity: 10%;
+  margin-left:30%;
+
+  @media (max-width: ${media.tablet}px) {
+    font-size: 90px;
+    grid-template-columns: 100%;
+    max-width: 440px;
+  }
+
+  @media (max-width: ${media.mobile}px) {
+    font-size: 60px;
+  }
+
 
 `;
 
 const PostContent = styled(Link)`
-  width: 100%;
+  width: 60%;
   display: grid;
   grid-template-columns: 300px 1fr;
   grid-gap: 0 40px;
@@ -153,15 +173,23 @@ const PostContent = styled(Link)`
     grid-template-columns: 100%;
     max-width: 440px;
   }
+
+  @media (max-width: ${media.mobile}px) {
+    grid-template-columns: 70%;
+    grid-template-rows: 70%;
+  }
 `;
 
 const PostText = styled.div`
   grid-column: 2;
-  padding: 60px 0;
-
+  padding: 20px 0;
+  width: 250px;
   @media (max-width: ${media.tablet}px) {
-    grid-column: 1;
-    padding: 30px 0;
+    padding: 20px 0;
+    width: 150px;
+  }
+  @media (max-width: ${media.mobile}px) {
+    padding: 20px 0;
   }
 `;
 
@@ -188,7 +216,7 @@ const PostTitle = styled.h2`
   }
 
   @media (max-width: ${media.mobile}px) {
-    font-size: 30px;
+    font-size: 20px;
   }
 `;
 

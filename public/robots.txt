@@ -1,1 +1,2 @@
+Sitemap: http://bucharitesh.in/sitemap.xml
 User-agent: *

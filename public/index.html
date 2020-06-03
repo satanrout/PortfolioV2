@@ -2,20 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <script src="https://cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
     <meta name="theme-color" content="#111111" />
     <meta name="author" content="Ritesh Bucha" />
+    <title>Ritesh Bucha | Web Developer + Designer</title>
+    <meta name="description" content="Ritesh Bucha, I am a Designer, full-stack developer, and creator of web & mobile solutions with a focus on motion and user experience.">
+    <meta name="keywords" content="bucha, ritesh, bucharitesh, riteshbucha, ritesh bucha, bucha ritesh, bucharitesh.in">
+    <link rel="manifest" href="https://bucharitesh.in/manifest.json" />
+    <link rel="shortcut icon" href="https://bucharitesh.in/favicon.png" />
+    <link rel="apple-touch-icon" href="https://bucharitesh.in/icon-256.png" />
+    <link type="text/plain" rel="author" href="https://bucharitesh.in/humans.txt" />
+    <link rel="canonical" href="https://bucharitesh.in" />
 
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-256.png" />
-    <link type="text/plain" rel="author" href="%PUBLIC_URL%/humans.txt" />
-
-    <meta property="og:image" content="https://bucharitesh.in%PUBLIC_URL%/social-image.png" />
+    <meta property="og:image" content="https://bucharitesh.in/social-image.png" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="549" />
+    <meta property="og:image:width" content="480" />
+    <meta property="og:image:height" content="480" />
+    <meta property="og:type" content="portfolio" />
 
     <meta property="og:title" content="Ritesh Bucha | Web Developer + Designer" />
     <meta property="og:site_name" content="bucharitesh.in" />
@@ -25,9 +28,12 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="Designer, full-stack developer, and creator of web & mobile solutions with a focus on motion and user experience." />
     <meta name="twitter:title" content="Ritesh Bucha | Designer + Developer" />
-    <meta name="twitter:image" content="https://bucharitesh.in%PUBLIC_URL%/social-image.png" />
-    <link rel="stylesheet" href="https://unpkg.com/kursor@0.1.6/dist/kursor.css">
-    <style>
+    <meta name="twitter:image" content="https://bucharitesh.in/social-image.png" />
+    <meta name="twitter:site" content="@bucha_ritesh">
+    <meta name="twitter:creator" content="@bucha_ritesh">
+
+    <link rel="stylesheet" type="text/css" media="(min-width: 700px)" href="./Kursor.css">
+    <style media="(min-width: 700px)">
       :root {
   --shadow: #71d5fe;
   --scrollbarBG: transparent;
@@ -59,7 +65,11 @@
       document.body.className = preferredTheme || 'dark';
     </script>
     <div id="root"></div>
-    <script src="https://unpkg.com/kursor@0.1.6/dist/kursor.js"></script>
+    <script>
+      if (window.screen.width >= 480) {
+        document.write('<script type="text/javascript" src="https://unpkg.com/kursor@0.1.6/dist/kursor.js"><\/script><script src="https://cdn.jsdelivr.net/github-cards/latest/widget.js"><\/script>');
+      }
+    </script>
     <script>
         new kursor({
             type: 2,

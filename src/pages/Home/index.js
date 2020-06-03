@@ -7,9 +7,9 @@ import GitProjects from './GitProjects';
 import Profile from './Profile';
 import Footer from 'components/Footer';
 import { usePrefersReducedMotion, useRouteTransition } from 'hooks';
-import easyProject from 'assets/easy-project.png';
-import easyProjectLarge from 'assets/easy-project-large.png';
-import easyProjectPlaceholder from 'assets/easy-project-placeholder.png';
+import easyProject from 'assets/easy-project.webp';
+import easyProjectLarge from 'assets/easy-project-large.webp';
+import easyProjectPlaceholder from 'assets/easy-project-placeholder.webp';
 
 const disciplines = ['Creator', 'Illustrator', 'Designer' ,'Influencer'];
 

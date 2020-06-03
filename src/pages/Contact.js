@@ -1,4 +1,4 @@
-import React, { useState, useCallback, memo } from 'react';
+import React, { useState, memo } from 'react';
 import styled, { css } from 'styled-components/macro';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import { Helmet } from 'react-helmet-async';
@@ -15,19 +15,16 @@ import * as firebase from 'firebase/app';
 import "firebase/firestore";
 import "firebase/firebase"
 const config = {
-    apiKey: "AIzaSyDtpksAts3-OUc3sTUZjMgcMM2AegJqEnY",
+  apiKey: "AIzaSyDtpksAts3-OUc3sTUZjMgcMM2AegJqEnY",
     authDomain: "portfoliov2-2963d.firebaseapp.com",
     databaseURL: "https://portfoliov2-2963d.firebaseio.com",
     projectId: "portfoliov2-2963d",
     storageBucket: "portfoliov2-2963d.appspot.com",
     messagingSenderId: "793465687390",
-    appId: "1:793465687390:web:6f1eaf31a4df44612193cf",
-    measurementId: "G-72D6BM77PC"
+    appId: "1:793465687390:web:6f1eaf31a4df44612193cf"
 };
 firebase.initializeApp(config);
 const initDelay = tokens.base.durationS;
-
-
 
 function Contact() {
   const { status } = useRouteTransition();
@@ -46,7 +43,7 @@ function Contact() {
     let mail = email.value;
     let msg = message.value;
     if(name && email && message){
-    const userRef = db.collection("contacts").add({
+    db.collection("contacts").add({
       name: nm,
       email: mail,
       message: msg

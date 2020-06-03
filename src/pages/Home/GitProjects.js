@@ -1,103 +1,91 @@
-import React, { useMemo, useEffect, useState, Fragment, memo } from 'react';
-import styled, { css, keyframes, useTheme } from 'styled-components/macro';
+import React, { useState, Fragment} from 'react';
+import styled, { css } from 'styled-components/macro';
 import { TransitionGroup, Transition } from 'react-transition-group';
 import { AnimFade, sectionPadding, media } from 'utils/style';
 import DecoderText from 'components/DecoderText';
-import Icon from 'components/Icon';
-import { useInterval, usePrevious, useWindowSize } from 'hooks';
 import { reflow } from 'utils/transition';
 import prerender from 'utils/prerender';
-import { pxToRem, tokens, msToNum } from 'app/theme';
+import { pxToRem } from 'app/theme';
 import { RepoCard } from 'components/GithubCard'
 import 'components/GithubCard/medium.css';
 
-const initDelay = tokens.base.durationS;
-
-function Articles() {
+function GitProjects(visible) {
   const [complete] = useState(false);
-  const theme = useTheme();
-
   return (
+    <TransitionGroup prerender={!prerender}>
+      {!complete &&
     <Transition
-    key={theme.themeId}
-    appear={!prerender}
-    in={!prerender}
-    timeout={3000}
+    in={visible}
+    start={!prerender} offset={300}
     onEnter={reflow}
   >
     {status => (
       <Fragment>
+        <ProfileSection>
         <IntroText>
           <IntroName status={status}>
-            <DecoderText text="GITHUB Repo" start={!prerender} offset={120} />
+            <DecoderText text="GITHUB Repo's" start={!prerender} offset={300} />
           </IntroName>
         </IntroText>
         <PostListWrapper>
       <PostListContent>
-          <RepoCard username="bucharitesh" repo="PortfolioV2" />
-          <RepoCard username="bucharitesh" repo="PortfolioV1" />
-          <RepoCard username="bucharitesh" repo="EasyPharma" />
+          <Card username="bucharitesh" repo="PortfolioV2" />
+          <Card username="bucharitesh" repo="PortfolioV1" />
       </PostListContent>
+      <Text><br /><br />These repos are auto uploded via github API !! More on the Way :)</Text>
       </PostListWrapper>
+      </ProfileSection>
       </Fragment>
     )}
   </Transition>
-      
+}
+  </TransitionGroup>
   );
 }
 
-export default Articles;
+export default GitProjects;
+
+const Card = styled(RepoCard)`
+
+`;
+
+const ProfileSection = styled.section`
+  width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
+  ${sectionPadding}
+  `;
+
+const Text = styled.div`
+      font-size: 10px;
+`;
 
 const PostListWrapper = styled.div`
+  bottom: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const PostListContent = styled.div`
+  max-width: var(--maxWidthXL);
+  grid-gap: 0px;
+  position: relative;
+
+  @media (min-width: ${media.desktop}px) {
+    max-width: var(--maxWidthXL);
+  }
+
+  @media (max-width: ${media.tablet}px) {
   max-width: var(--maxWidthL);
-  grid-gap: 20px;
-  position: relative;
+  }
 
-`;
-
-const PostTitleWrapper = styled.div`
-  display: flex;
+  @media (max-width: ${media.mobile}px) {
+    display: flex;
+    flex-direction: column;
   align-items: flex-start;
-`;
+  }
 
-const PostListTitle = styled.h1`
-  font-size: 120px;
-  margin: 0;
-  position: relative;
-
-`;
-
-const ContactTitle = styled.h1`
-  font-size: var(--fontSizeH2);
-  font-weight: var(--fontWeightMedium);
-  margin-bottom: var(--space2XL);
-  line-height: var(--lineHeightTitle);
-  margin-top: 0;
-  color: var(--colorTextTitle);
-  transition-property: transform, opacity;
-  transition-timing-function: var(--bezierFastoutSlowin);
-  transition-duration: var(--durationXL);
-  transition-delay: calc(${props => props.delay}ms + ${initDelay});
-  transform: translate3d(0, var(--space5XL), 0);
-  opacity: 0;
-
-  ${props => (props.status === 'entering' || props.status === 'entered') && !prerender && css`
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  `}
-
-  ${props => props.status === 'exiting' && css`
-    transition-duration: var(--durationM);
-    transition-delay: 0s;
-    transform: translate3d(0, calc(var(--space2XL) * -1), 0);
-    opacity: 0;
-  `}
 `;
 
 const IntroText = styled.header`
@@ -126,7 +114,7 @@ const IntroText = styled.header`
 
 const IntroName = styled.h1`
   text-transform: uppercase;
-  font-size: ${pxToRem(24)};
+  font-size: ${pxToRem(40)};
   letter-spacing: 0.3em;
   color: var(--colorTextBody);
   margin-bottom: var(--space2XL);
@@ -149,11 +137,12 @@ const IntroName = styled.h1`
   }
 
   @media (max-width: ${media.tablet}px) {
+    font-size: ${pxToRem(24)};
     margin-bottom: var(--spaceL);
   }
 
   @media (max-width: ${media.mobile}px) {
-    margin-bottom: 20px;
+    font-size: ${pxToRem(22)};
     letter-spacing: 0.2em;
     white-space: nowrap;
     overflow: hidden;

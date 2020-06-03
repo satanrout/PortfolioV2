@@ -15,17 +15,14 @@ import prerender from 'utils/prerender';
 
 const Home = lazy(() => import('pages/Home'));
 const Contact = lazy(() => import('pages/Contact'));
-const ProjectModern = lazy(() => import('pages/ProjectModern'));
 const Easypharm = lazy(() => import('pages/EasyPharm'));
-const ProjectDevTechTools = lazy(() => import('pages/DevTechTools'));
-const ProjectMystGang = lazy(() => import('pages/MystGang'));
 const Articles = lazy(() => import('pages/Articles'));
 const NotFound = lazy(() => import('pages/404'));
 
 export const AppContext = createContext();
 export const TransitionContext = createContext();
 
-const repoPrompt = `\u00A9 2018-${new Date().getFullYear()} Ritesh Bucha\n\n`;
+const repoPrompt = `\u00A9 May 2020-${new Date().getFullYear()} Ritesh Bucha\n\n`;
 
 export const fontStyles = `
   @font-face {
@@ -116,11 +113,8 @@ function AppRoutes() {
                 <Suspense fallback={<Fragment />}>
                   <Switch location={location}>
                     <Route exact path="/" component={Home} />
-                    <Route path="/projects/ProjectModern" component={ProjectModern} />
                     <Route path="/contact" component={Contact} />
                     <Route path="/projects/Easypharm" component={Easypharm} />
-                    <Route path="/projects/dtt" component={ProjectDevTechTools} />
-                    <Route path="/projects/mystgang" component={ProjectMystGang} />
                     <Route path="/articles" component={Articles} />
                     <Route component={NotFound} />
                   </Switch>

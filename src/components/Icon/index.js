@@ -16,8 +16,14 @@ import { ReactComponent as IconPause } from 'assets/icons/pause.svg';
 import { ReactComponent as Iconinstagram } from 'assets/icons/instagram.svg';
 import { ReactComponent as IconLinkedin } from 'assets/icons/linkedin.svg';
 import { ReactComponent as IconResume } from 'assets/icons/portfolio.svg';
+import { ReactComponent as IconWhatsapp } from 'assets/icons/whatsapp.svg';
+import { ReactComponent as IconFacebook } from 'assets/icons/facebook.svg';
+import { ReactComponent as IconGmail } from 'assets/icons/gmail.svg';
 
 const icons = {
+  facebook: IconFacebook,
+  whatsapp: IconWhatsapp,
+  gmail: IconGmail,
   instagram: Iconinstagram,
   linkedin: IconLinkedin,
   dribbble: IconDribbble,

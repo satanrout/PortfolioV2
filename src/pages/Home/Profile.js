@@ -9,9 +9,12 @@ import ProgressiveImage from 'components/ProgressiveImage';
 import { sectionPadding, media } from 'utils/style';
 import { reflow } from 'utils/transition';
 import { LinkButton } from 'components/Button';
-import profileImg from 'assets/profile.png';
-import profileImgLarge from 'assets/profile-large.png';
-import profileImgPlaceholder from 'assets/profile-placeholder.png';
+import profileImg from 'assets/profile.webp';
+import profileImgLarge from 'assets/profile-large.webp';
+import profileImgPlaceholder from 'assets/profile-placeholder.webp';
+// import { navLinks, socialLinks } from './SocialIcons';
+// import { NavLink, Link } from 'components/Link';
+// import Icon from 'components/Icon';
 
 const ProfileText = ({ status, titleId }) => (
   <Fragment>
@@ -54,25 +57,6 @@ function Profile(props) {
         {status => (
           <ProfileContent>
             <ProfileColumn>
-              <ProfileText status={status} titleId={titleId} />
-              <ProfileButton
-                secondary
-                status={status}
-                to="/contact"
-                icon="send"
-              >
-                Send me a message
-              </ProfileButton>
-              <ResumeButton
-            iconHoverShift
-            href="https://firebasestorage.googleapis.com/v0/b/portfoliov2-2963d.appspot.com/o/Ritesh_resume.pdf?alt=media&token=02ab6ea6-7855-4e0a-908e-926c4089f6f5"
-            target="_blank"
-            iconRight="resume"
-          >
-            {linkLabel}
-          </ResumeButton>
-            </ProfileColumn>
-            <ProfileColumn>
               <ProfileTag aria-hidden>
                 <Divider
                   notchWidth="64px"
@@ -94,34 +78,97 @@ function Profile(props) {
                 height={560}
               />
             </ProfileColumn>
-            {/*
             <ProfileColumn>
-              <ProfileTag aria-hidden>
-                <Divider
-                  notchWidth="64px"
-                  notchHeight="8px"
-                  collapsed={status !== 'entered'}
-                  collapseDelay={1000}
-                />
-                <ProfileTagText status={status}>More</ProfileTagText>
-              </ProfileTag>
+              <ProfileText status={status} titleId={titleId} />
+              <ProfileButton
+                secondary
+                status={status}
+                to="/contact"
+                icon="send"
+              >
+                Send me a message
+              </ProfileButton>
+              <ResumeButton
+            iconHoverShift
+            href="https://firebasestorage.googleapis.com/v0/b/portfoliov2-2963d.appspot.com/o/Ritesh_resume.pdf?alt=media&token=02ab6ea6-7855-4e0a-908e-926c4089f6f5"
+            target="_blank"
+            iconRight="resume"
+          >
+            {linkLabel}
+          </ResumeButton>{/*
+          <SocialIcons>
+          <HeaderNavIcons>
+    {socialLinks.map(({ label, to, url, icon }) => (
+      <HeaderNavIconLink as={to && Link} key={label} aria-label={label} to={to} href={url}>
+        <HeaderNavIcon icon={icon} />
+      </HeaderNavIconLink>
+    ))}
+  </HeaderNavIcons>
+          </SocialIcons>
+    */}
             </ProfileColumn>
-            */}
+            
           </ProfileContent>
         )}
       </Transition>
     </ProfileSection>
   );
 }
+ 
+// const HeaderNavIconLink = styled.a.attrs({
+//   target: '_blank',
+//   rel: 'noopener noreferrer',
+// })`
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding: var(--spaceS);
+//   width: var(--space2XL);
+//   height: var(--space2XL);
+//   margin: 5px;
+// `;
+
+// const HeaderNavIcon = styled(Icon)`
+//   fill: var(--colorTextLight);
+//   transition: fill var(--durationM) ease;
+
+//   ${/* sc-selector */HeaderNavIconLink}:hover &,
+//   ${/* sc-selector */HeaderNavIconLink}:focus &,
+//   ${/* sc-selector */HeaderNavIconLink}:active & {
+//     fill: rgb(var(--rgbAccent));
+//   }
+// `;
+
+// const SocialIcons = styled.div`
+// display: flex;
+// align-items: center;
+// justify-content: center;
+//   width: var(--space2XL);
+//   height: var(--space5XL);
+//   margin-left: 30%;
+// `;
+
+// const HeaderNavIcons = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   top: 20%;
+
+//   @media (max-width: ${media.mobile}px) {
+//     position: relative;
+
+//     transform: none;
+//     align-items: center;
+//     justify-content: center;
+//   }
+// `;
 
 const ProfileSection = styled.section`
   width: 100vw;
   min-height: 100vh;
   margin-top: 60px;
-  margin-bottom: 40px;
+
   padding-top: 60px;
   padding-right: 80px;
-  padding-bottom: 40px;
   padding-left: 220px;
   display: flex;
   justify-content: center;
@@ -166,9 +213,13 @@ const ProfileSection = styled.section`
 const ResumeButton = styled(LinkButton)`
   position: relative;
   top: 10%;
-  left: 20%;
+  margin-left: 30%;
   margin-bottom: 10%;
   
+  @media (max-width: ${media.mobile}px) {
+    margin-right: 15%;
+    margin-left: 15%;
+  }
 `;
 
 const ProfileContent = styled.div`
@@ -180,9 +231,6 @@ const ProfileContent = styled.div`
 
   @media (max-width: ${media.tablet}px) {
     max-width: 600px;
-  }
-
-  @media (max-width: ${media.tablet}px) {
     grid-template-columns: 100%;
   }
 `;
@@ -202,10 +250,9 @@ const ProfileTitle = styled.h2`
   font-weight: var(--fontWeightMedium);
   color: var(--colorTextTitle);
   white-space: nowrap;
-  margin: 0 0 var(--spaceL) 0;
+  margin: 50 0 var(--spaceL) 0;
   opacity: ${props => props.status === 'entered' ? 1 : 0};
   transition: opacity var(--durationXL) ease var(--durationM);
-
   @media (max-width: ${media.mobile}px) {
     margin-bottom: var(--spaceXL);
   }
@@ -224,7 +271,7 @@ const ProfileDescription = styled.p`
 `;
 
 const ProfileTag = styled.div`
-  margin-top: 220px;
+
   margin-bottom: 40px;
   display: grid;
   grid-template-columns: var(--space4XL) 1fr;
@@ -237,6 +284,7 @@ const ProfileTag = styled.div`
 `;
 
 const ProfileTagText = styled.div`
+
   font-size: var(--fontSizeBodyS);
   font-weight: var(--fontWeightMedium);
   color: rgb(var(--rgbPrimary));
@@ -254,6 +302,7 @@ const ProfileTagText = styled.div`
 `;
 
 const ProfileImage = styled(ProgressiveImage)`
+
   max-width: 100%;
   width: 900px;
   height: auto;

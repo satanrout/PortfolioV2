@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { LinkButton } from 'components/Button';
+import styled from 'styled-components/macro';
 import "./medium.css";
 
 class RepoCard extends React.Component {
+  
   constructor(props) {
     super(props);
     this.apiRoot = 'https://api.github.com/repos';
@@ -24,12 +27,12 @@ class RepoCard extends React.Component {
     })();
   }
 
+
   render() {
+    
     if (this.state.repo) {
-      const profileUrl = this.state.repo.owner.html_url;
       const repoUrl = this.state.repo.html_url;
       const repoName = this.state.repo.name;
-      const user = this.state.repo.owner.login;
       const forks = this.state.repo.forks_count;
       const stars = this.state.repo.stargazers_count;
       return (
@@ -41,7 +44,17 @@ class RepoCard extends React.Component {
               </h1>
             </div>
             <div className="content">
-      <div className="description">{this.state.repo.description}<br/><a href={this.state.repo.homepage}>Go To Page</a></div>
+      <div className="description">{this.state.repo.description}<br/>
+      <VisitWebsite
+            secondary
+            iconHoverShift
+            style={{ paddingLeft: 'var(--spaceXS)' }}
+            icon="chevronRight"
+            href={this.state.repo.homepage}
+            target="_blank"
+          >
+            {<Websitelink >VISIT WEBSITE</Websitelink>}
+             </VisitWebsite></div>
               <ul className="status">
                 <li><strong>{forks}</strong>Forks</li>
                 <li><strong>{stars}</strong>Stars</li>
@@ -55,5 +68,13 @@ class RepoCard extends React.Component {
     }
   }
 }
+
+const Websitelink = styled.div`
+  font-size: 10px;
+`;
+
+const VisitWebsite = styled(LinkButton)`
+  size: 10px;
+`;
 
 export { RepoCard };
